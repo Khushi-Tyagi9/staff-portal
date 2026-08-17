@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Staff Portal</title>
+<style>
+  :root { --accent: #059669; --accent-dark: #047857; --bg: #eef1f7; --surface: #fff; --border: #e3e6ee; --text: #1f2430; --muted: #6b7280; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  header { background: linear-gradient(135deg, #34d399, var(--accent)); color: #fff; padding: 1.1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  header h1 { margin: 0; font-size: 1.15rem; }
+  header .badge { font-size: 0.75rem; opacity: 0.85; }
+  main { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem; box-shadow: 0 1px 2px rgba(16,24,40,.06); }
+  .card h3 { margin: 0 0 0.4rem; font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+  .card .stat { font-size: 1.6rem; font-weight: 700; }
+  .note { grid-column: 1 / -1; font-size: 0.85rem; color: var(--muted); background: var(--surface); border: 1px dashed var(--border); border-radius: 14px; padding: 1rem; }
+
+  .xyz-launcher { position: fixed; bottom: 22px; right: 22px; background: var(--accent); color: #fff; border: none; border-radius: 999px; padding: 0.75rem 1.1rem; font-size: 0.9rem; cursor: pointer; box-shadow: 0 8px 24px rgba(4,120,87,.35); }
+  .xyz-launcher:hover { background: var(--accent-dark); }
+  .xyz-panel { position: fixed; bottom: 90px; right: 22px; width: 380px; max-width: calc(100vw - 44px); height: 620px; max-height: calc(100vh - 120px); background: #fff; border-radius: 16px; box-shadow: 0 16px 48px rgba(16,24,40,.25); overflow: hidden; display: none; border: 1px solid var(--border); }
+  .xyz-panel.open { display: block; }
+  .xyz-panel iframe { width: 100%; height: 100%; border: none; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>🧑‍🏫 Staff Portal</h1>
+    <span class="badge">Stub — real app lives in the "04. Staff Repository"</span>
+  </header>
+
+  <main>
+    <div class="grid">
+      <div class="card"><h3>My Class</h3><div class="stat">6-A</div></div>
+      <div class="card"><h3>Mark Attendance</h3><div class="stat">Ask XYZ AI →</div></div>
+      <div class="card"><h3>Pending Requests</h3><div class="stat">—</div></div>
+      <div class="note">
+        This portal is a placeholder demonstrating how a real teacher-facing app would
+        consume the <strong>XYZ AI</strong> service. Click "Ask XYZ AI" to chat with the
+        assistant — try "Mark Rahul absent today" and log in as a Teacher.
+      </div>
+    </div>
+  </main>
+
+  <button class="xyz-launcher" onclick="document.getElementById('xyz-panel').classList.toggle('open')">💬 Ask XYZ AI</button>
+  <div class="xyz-panel" id="xyz-panel">
+    <iframe src="http://localhost:5173" title="XYZ AI Assistant"></iframe>
+  </div>
+</body>
+</html>
